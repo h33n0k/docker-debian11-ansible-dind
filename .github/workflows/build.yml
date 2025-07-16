@@ -30,6 +30,9 @@ jobs:
       - name: Verify Ansible is accessible in the built image.
         run: docker exec --tty test-container env TERM=xterm ansible --version
 
+      - name: Verify Docker is accessible in the built image.
+        run: docker exec --tty test-container env TERM=xterm docker --version
+
   # If on master branch, build and release image.
   release:
     name: Release
